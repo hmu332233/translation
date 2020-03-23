@@ -6,7 +6,7 @@
   "author": "minung.han <hmu332233@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node ./bin/www"
+    "start:server": "node ./src/server/bin/www"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
