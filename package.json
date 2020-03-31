@@ -10,6 +10,7 @@
     "start:server": "node ./src/server/bin/www"
   },
   "dependencies": {
+    "classnames": "^2.2.6",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^8.2.0",
