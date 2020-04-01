@@ -10,6 +10,7 @@
     "start:server": "node ./src/server/bin/www"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.3.2",
     "classnames": "^2.2.6",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
