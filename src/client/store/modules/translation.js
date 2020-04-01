@@ -1,31 +1,18 @@
-const CHANGE_VALUE = '@TRANSLATION/CHANGE_VALUE';
-
-// action creators
-const changeValue = value => {
-  return {
-    type: CHANGE_VALUE,
-    value,
-  }
-}
-
-export const actionCreators = {
-  changeValue,
-};
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   value: '',
 };
 
-const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case CHANGE_VALUE:
-      return {
-        ...state,
-        value: action.value,
-      };
-    default:
-      return state;
+const translation = createSlice({
+  name: '@TRANSLATION',
+  initialState,
+  reducers: {
+    changeValue: (state, action) => {
+      return { ...state, value: action.payload };
+    }, 
   }
-}
+});
 
-export default reducer;
+export const actions = translation.actions;
+export default translation.reducer;

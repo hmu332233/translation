@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './Main.scss';
 
 import { connect } from 'react-redux';
-import { actionCreators } from 'store/modules/translation';
+import { actions } from 'store/modules/translation';
 
 import classNames from 'classnames';
 
@@ -44,7 +44,7 @@ const mapStateToProps = (state, ownProps) => {
 // store의 dispatch를 props로 맵핑한다.
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onChange: value => dispatch(actionCreators.changeValue(value)),
+    onChange: value => dispatch(actions.changeValue(value)),
   };
 };
 
