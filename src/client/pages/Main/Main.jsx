@@ -7,6 +7,8 @@ import { actions } from 'store/modules/translation';
 
 import classNames from 'classnames';
 
+import TextareaGroup from 'components/TextareaGroup';
+
 function Main(props) {
 
   const handleValueChange = e => {
@@ -16,14 +18,25 @@ function Main(props) {
   return (
     <div className={classNames('container', styles.Main)}>
       <div className="row">
-        <label for="validationServerUsername">Text</label>
-        <textarea class="form-control" placeholder="Required example textarea" onChange={handleValueChange} />
-        <label for="validationServerUsername">Google</label>
-        <textarea class="form-control" placeholder="Required example textarea" value={props.value} />
-        <label for="validationServerUsername">Naver</label>
-        <textarea class="form-control" placeholder="Required example textarea" value={props.value} />
-        <label for="validationServerUsername">Kakao</label>
-        <textarea class="form-control" placeholder="Required example textarea" value={props.value} />
+        <form className="w-100">
+          <TextareaGroup
+            label="Text"
+            value={props.value}
+            onChange={handleValueChange}
+          />
+          <TextareaGroup
+            label="Google"
+            value={props.value}
+          />
+          <TextareaGroup
+            label="Naver"
+            value={props.value}
+          />
+          <TextareaGroup
+            label="Kakao"
+            value={props.value}
+          />
+        </form>
       </div>
     </div>
   );
