@@ -22,7 +22,7 @@ const translation = createSlice({
   extraReducers: {
     [fetchTranslation.pending]: (state, action) => {},
     [fetchTranslation.fulfilled]: (state, action) => {
-      state.kakao = action.payload
+      state.kakao = action.payload.kakao;
     },
     [fetchTranslation.rejected]: (state, action) => {}
   }

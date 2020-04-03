@@ -5,6 +5,8 @@ import styles from './Main.scss';
 import { connect } from 'react-redux';
 import { actions } from 'store/modules/translation';
 
+import _debounce from 'lodash/debounce';
+
 import classNames from 'classnames';
 
 import TextareaGroup from 'components/TextareaGroup';
@@ -12,8 +14,9 @@ import TextareaGroup from 'components/TextareaGroup';
 function Main(props) {
 
   const handleValueChange = e => {
-    props.onChange(e.target.value);
-    props.fetchTranslation(e.target.value);
+    const value = e.target.value;
+    props.onChange(value);
+    value && props.fetchTranslation(e.target.value);
   }
 
   return (
@@ -35,7 +38,7 @@ function Main(props) {
           />
           <TextareaGroup
             label="Kakao"
-            value={props.value}
+            value={props.kakaoValue}
           />
         </form>
       </div>
@@ -52,6 +55,7 @@ Main.defaultProps = {};
 const mapStateToProps = (state, ownProps) => {
   return {
     value: state.translation.value,
+    kakaoValue: state.translation.kakao,
   };
 };
 
@@ -59,7 +63,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onChange: value => dispatch(actions.changeValue(value)),
-    fetchTranslation : value => dispatch(actions.fetchTranslation(value)),
+    fetchTranslation : _debounce(value => dispatch(actions.fetchTranslation(value)), 1000),
   };
 };
 
