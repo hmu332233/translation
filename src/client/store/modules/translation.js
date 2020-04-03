@@ -1,18 +1,35 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+
+import api from 'utils/api';
 
 const initialState = {
   value: '',
 };
+
+const fetchTranslation = createAsyncThunk(
+  '@TRANSLATION/fetchTranslation',
+  text => api.getTranslation({ text }).then(res => res.data)
+)
 
 const translation = createSlice({
   name: '@TRANSLATION',
   initialState,
   reducers: {
     changeValue: (state, action) => {
-      return { ...state, value: action.payload };
+      state.value = action.payload;
     }, 
+  },
+  extraReducers: {
+    [fetchTranslation.pending]: (state, action) => {},
+    [fetchTranslation.fulfilled]: (state, action) => {
+      state.kakao = action.payload
+    },
+    [fetchTranslation.rejected]: (state, action) => {}
   }
 });
 
-export const actions = translation.actions;
+export const actions = {
+  ...translation.actions,
+  fetchTranslation,
+};
 export default translation.reducer;

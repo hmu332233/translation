@@ -13,6 +13,7 @@ function Main(props) {
 
   const handleValueChange = e => {
     props.onChange(e.target.value);
+    props.fetchTranslation(e.target.value);
   }
 
   return (
@@ -58,6 +59,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onChange: value => dispatch(actions.changeValue(value)),
+    fetchTranslation : value => dispatch(actions.fetchTranslation(value)),
   };
 };
 

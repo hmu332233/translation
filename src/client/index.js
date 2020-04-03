@@ -2,11 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
 import rootReducer from './store';
 
-const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
-const store = createStore(rootReducer, devTools);
+const store = configureStore({
+  reducer: rootReducer
+});
 
 import MainApp from './apps/MainApp';
 
