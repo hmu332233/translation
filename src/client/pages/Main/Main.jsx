@@ -34,7 +34,7 @@ function Main(props) {
           />
           <TextareaGroup
             label="Naver"
-            value={props.value}
+            value={props.naverValue}
           />
           <TextareaGroup
             label="Kakao"
@@ -56,6 +56,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     value: state.translation.value,
     kakaoValue: state.translation.kakao,
+    naverValue: state.translation.naver,
   };
 };
 

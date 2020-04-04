@@ -23,6 +23,7 @@ const translation = createSlice({
     [fetchTranslation.pending]: (state, action) => {},
     [fetchTranslation.fulfilled]: (state, action) => {
       state.kakao = action.payload.kakao;
+      state.naver = action.payload.naver;
     },
     [fetchTranslation.rejected]: (state, action) => {}
   }
