@@ -7,8 +7,8 @@ import classNames from 'classnames';
 function TextareaGroup(props) {
   return (
     <div className={classNames('form-group', styles.TextareaGroup)}>
-      <label for={props.id}>{props.label}</label>
-      <textarea class="form-control" id={props.id} onChange={props.onChange} value={props.value} />
+      <label htmlFor={props.id}>{props.label}</label>
+      <textarea className="form-control" id={props.id} onChange={props.onChange} value={props.value} />
     </div>
   );
 }

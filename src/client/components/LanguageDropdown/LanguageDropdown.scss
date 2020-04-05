@@ -1,2 +1,9 @@
 .LanguageDropdown {
+  display: flex;
+  &__dropdown {
+    margin-left: 32px;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
 }

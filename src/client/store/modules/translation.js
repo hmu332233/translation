@@ -1,9 +1,12 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import api from 'utils/api';
+import { LANGUAGE_ITEMS } from 'constants';
 
 const initialState = {
   value: '',
+  sourceLanguageItem: LANGUAGE_ITEMS[0],
+  targetLanguageItem: LANGUAGE_ITEMS[1],
 };
 
 const fetchTranslation = createAsyncThunk(
@@ -17,7 +20,15 @@ const translation = createSlice({
   reducers: {
     changeValue: (state, action) => {
       state.value = action.payload;
-    }, 
+    },
+    changeLanguageItem: (state, action) => {
+      if (action.payload.sourceLanguageItem) {
+        state.sourceLanguageItem = action.payload.sourceLanguageItem;
+      }
+      if (action.payload.targetLanguageItem) {
+        state.targetLanguageItem = action.payload.targetLanguageItem;
+      }
+    },
   },
   extraReducers: {
     [fetchTranslation.pending]: (state, action) => {},

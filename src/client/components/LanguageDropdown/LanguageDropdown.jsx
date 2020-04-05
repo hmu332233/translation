@@ -2,38 +2,44 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './LanguageDropdown.scss';
 
-import Dropdown from 'components/Dropdown';
+import { LANGUAGE_ITEMS } from 'constants';
 
-const ITEMS = [
-  {
-    text: '한국어',
-    value: 'ko',
-  },
-  {
-    text: '영어',
-    value: 'en',
-  },
-  {
-    text: '일본어',
-    value: 'jp',
-  },
-];
+import Dropdown from 'components/Dropdown';
 
 function LanguageDropdown(props) {
   return (
-    <Dropdown className={styles.LanguageDropdown}
-      {...props}
-      items={ITEMS}
-    />
+    <div className={styles.LanguageDropdown}>
+      <Dropdown
+        className={styles.LanguageDropdown__dropdown}
+        items={LANGUAGE_ITEMS}
+        isOpen={props.isSourceDropdownOpen}
+        toggle={props.toggleSourceDropdown}
+        buttonText={props.sourceDropdownButtonText}
+        onItemClick={props.onSourceItemClick}
+      />
+      <Dropdown
+        className={styles.LanguageDropdown__dropdown}
+        items={LANGUAGE_ITEMS}
+        isOpen={props.isTargetDropdownOpen}
+        toggle={props.toggleTargetDropdown}
+        buttonText={props.targetDropdownButtonText}
+        onItemClick={props.onTargetItemClick}
+      />
+    </div>
   );
 }
 
 LanguageDropdown.propTypes = {
-  ...Dropdown.propTypes
+  sourceDropdownButtonText: PropTypes.object,
+  targetDropdownButtonText: PropTypes.object,
+  isSourceDropdownOpen: PropTypes.bool,
+  isTargetDropdownOpen: PropTypes.bool,
+  toggleSourceDropdown: PropTypes.func,
+  toggleTargetDropdown: PropTypes.func,
+  onSourceItemClick: PropTypes.func,
+  onTargetItemClick: PropTypes.func,
 };
-LanguageDropdown.defaultProps = {
-  ...Dropdown.defaultProps,
-  buttonText: '언어 선택',
-};
+LanguageDropdown.defaultProps = {};
+
 
 export default LanguageDropdown;

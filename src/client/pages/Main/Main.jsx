@@ -9,14 +9,11 @@ import _debounce from 'lodash/debounce';
 
 import classNames from 'classnames';
 
-import useToggle from 'hooks/useToggle';
-
 import TextareaGroup from 'components/TextareaGroup';
-import LanguageDropdown from 'components/LanguageDropdown';
+
+import LanguageDropdown from 'containers/LanguageDropdown';
 
 function Main(props) {
-
-  const [isOpen, toggle] = useToggle();
 
   const handleValueChange = e => {
     const value = e.target.value;
@@ -27,7 +24,7 @@ function Main(props) {
   return (
     <div className={classNames('container', styles.Main)}>
       <div className="row">
-        <LanguageDropdown isOpen={isOpen} toggle={toggle} onItemClick={console.log} />
+        <LanguageDropdown />
       </div>
       <div className="row">
         <form className="w-100">

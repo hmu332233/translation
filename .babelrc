@@ -11,7 +11,8 @@
           "hooks": "./src/client/hooks",
           "pages": "./src/client/pages",
           "store": "./src/client/store",
-          "utils": "./src/client/utils"
+          "utils": "./src/client/utils",
+          "constants": "./src/client/constants"
         }
       }
     ]

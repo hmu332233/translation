@@ -18,8 +18,8 @@ function Dropdown(props) {
   };
 
   return (
-    <div className={classNames('dropdown', styles.Dropdown)} >
-      <button className="btn btn-primary dropdown-toggle" type="button" onClick={props.toggle}>
+    <div className={classNames('dropdown', props.className)} >
+      <button className="btn btn-secondary dropdown-toggle" data-toggle="dropdown" type="button" onClick={props.toggle}>
         {props.buttonText}
       </button>
       <div className={classNames('dropdown-menu', props.isOpen && 'show')}>
@@ -45,13 +45,15 @@ Dropdown.propTypes = {
       id: PropTypes.string,
       text: PropTypes.string,
       value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    })
+    }),
   ),
+  onItemClick: PropTypes.func,
 };
 Dropdown.defaultProps = {
   isOpen: false,
   toggle: v => v,
   items: [],
+  onItemClick: v => v,
 };
 
 export default Dropdown;
