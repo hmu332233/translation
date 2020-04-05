@@ -6,9 +6,9 @@ import { actions } from 'store/modules/translation';
 
 import useToggle from 'hooks/useToggle';
 
-import LanguageDropdownComponent from 'components/LanguageDropdown';
+import LanguageDropdown from 'components/LanguageDropdown';
 
-function LanguageDropdown(props) {
+function LanguageDropdownContainer(props) {
   const [isSourceDropdownOpen, toggleSourceDropdown] = useToggle();
   const [isTargetDropdownOpen, toggleTargetDropdown] = useToggle();
 
@@ -37,7 +37,7 @@ function LanguageDropdown(props) {
   };
 
   return (
-    <LanguageDropdownComponent
+    <LanguageDropdown
       sourceDropdownButtonText={props.sourceLanguageItem.text}
       targetDropdownButtonText={props.targetLanguageItem.text}
       isSourceDropdownOpen={isSourceDropdownOpen}
@@ -50,8 +50,8 @@ function LanguageDropdown(props) {
   );
 }
 
-LanguageDropdown.propTypes = {};
-LanguageDropdown.defaultProps = {};
+LanguageDropdownContainer.propTypes = {};
+LanguageDropdownContainer.defaultProps = {};
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -66,4 +66,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LanguageDropdown);
+export default connect(mapStateToProps, mapDispatchToProps)(LanguageDropdownContainer);

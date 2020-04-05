@@ -11,7 +11,7 @@ import classNames from 'classnames';
 
 import TextareaGroup from 'components/TextareaGroup';
 
-import LanguageDropdown from 'containers/LanguageDropdown';
+import LanguageDropdownContainer from 'containers/LanguageDropdownContainer';
 
 function Main(props) {
 
@@ -24,7 +24,7 @@ function Main(props) {
   return (
     <div className={classNames('container', styles.Main)}>
       <div className="row">
-        <LanguageDropdown />
+        <LanguageDropdownContainer />
       </div>
       <div className="row">
         <form className="w-100">
