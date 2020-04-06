@@ -11,8 +11,12 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-// app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, '../../dist')));
+
+let staticFilePath = path.join(__dirname, '../../public');
+if (process.env.NODE_ENV !== 'production') {
+  staticFilePath = path.join(__dirname, '../../dist');
+} 
+app.use(express.static(staticFilePath));
 
 app.use('/', indexRouter);
 
