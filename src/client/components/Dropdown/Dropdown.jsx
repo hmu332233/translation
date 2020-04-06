@@ -19,13 +19,13 @@ function Dropdown(props) {
 
   return (
     <div className={classNames('dropdown', props.className)} >
-      <button className="btn btn-secondary dropdown-toggle" data-toggle="dropdown" type="button" onClick={props.toggle}>
+      <button className={classNames('btn', 'btn-secondary', 'dropdown-toggle', props.buttonClassName)} data-toggle="dropdown" type="button" onClick={props.toggle}>
         {props.buttonText}
       </button>
       <div className={classNames('dropdown-menu', props.isOpen && 'show')}>
         {props.items.map((item, index) => (
           <DropdownItem
-            key={item.id || index}
+            key={item.id || item.value || index}
             text={item.text}
             onClick={() => handleItemClick(item)}
           />
@@ -37,6 +37,7 @@ function Dropdown(props) {
 
 Dropdown.propTypes = {
   className: PropTypes.string,
+  buttonClassName: PropTypes.string,
   isOpen: PropTypes.bool,
   toggle: PropTypes.func,
   buttonText: PropTypes.string,

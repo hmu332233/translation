@@ -11,6 +11,7 @@ function LanguageDropdown(props) {
     <div className={styles.LanguageDropdown}>
       <Dropdown
         className={styles.LanguageDropdown__dropdown}
+        buttonClassName={styles.LanguageDropdown__dropdown__button}
         items={LANGUAGE_ITEMS}
         isOpen={props.isSourceDropdownOpen}
         toggle={props.toggleSourceDropdown}
@@ -19,6 +20,7 @@ function LanguageDropdown(props) {
       />
       <Dropdown
         className={styles.LanguageDropdown__dropdown}
+        buttonClassName={styles.LanguageDropdown__dropdown__button}
         items={LANGUAGE_ITEMS}
         isOpen={props.isTargetDropdownOpen}
         toggle={props.toggleTargetDropdown}
