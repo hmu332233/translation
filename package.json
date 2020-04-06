@@ -8,7 +8,7 @@
   "scripts": {
     "start:client": "parcel src/client/index.html",
     "start:server": "node ./src/server/bin/www",
-    "build": "rm -rf build;parcel build src/client/index.html -d public --no-source-maps"
+    "build": "rm -rf public;parcel build src/client/index.html -d public --no-source-maps"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.3.2",
