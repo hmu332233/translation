@@ -11,8 +11,17 @@ const initialState = {
 
 const fetchTranslation = createAsyncThunk(
   '@TRANSLATION/fetchTranslation',
-  text => api.getTranslation({ text }).then(res => res.data)
-)
+  (text, thunkApi) => {
+    const { translation: { value, sourceLanguageItem, targetLanguageItem } } = thunkApi.getState();
+    return api
+      .getTranslation({
+        text: value,
+        source: sourceLanguageItem.value,
+        target: targetLanguageItem.value,
+      })
+      .then(res => res.data);
+  }
+);
 
 const translation = createSlice({
   name: '@TRANSLATION',
@@ -36,8 +45,8 @@ const translation = createSlice({
       state.kakao = action.payload.kakao;
       state.naver = action.payload.naver;
     },
-    [fetchTranslation.rejected]: (state, action) => {}
-  }
+    [fetchTranslation.rejected]: (state, action) => {},
+  },
 });
 
 export const actions = {

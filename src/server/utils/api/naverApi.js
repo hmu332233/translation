@@ -1,10 +1,10 @@
 const axios = require('axios');
 
-exports.translate = async ({ text }) => {
+exports.translate = async ({ text, source = 'ko', target = 'en' }) => {
   const data = {
     text,
-    source: 'ko',
-    target: 'en',
+    source,
+    target,
   };
   const options = {
     headers: {
