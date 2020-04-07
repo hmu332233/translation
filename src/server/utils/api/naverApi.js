@@ -1,10 +1,25 @@
 const axios = require('axios');
 
+const mapToLanguageCode = language => {
+  switch (language) {
+    case 'ko':
+    case 'kr':
+      return 'ko';
+    case 'en':
+      return 'en';
+    case 'jp':
+    case 'ja':
+      return 'ja';
+    default:
+      return 'ko';
+  }
+};
+
 exports.translate = async ({ text, source = 'ko', target = 'en' }) => {
   const data = {
     text,
-    source,
-    target,
+    source: mapToLanguageCode(source),
+    target: mapToLanguageCode(target),
   };
   const options = {
     headers: {
