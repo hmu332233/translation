@@ -42,7 +42,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onChange: value => dispatch(actions.changeValue(value)),
-    fetchTranslation : _debounce(value => dispatch(actions.fetchTranslation(value)), 3000),
+    fetchTranslation : _debounce(value => dispatch(actions.fetchTranslation(value)), 1000),
   };
 };
 
