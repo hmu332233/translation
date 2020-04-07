@@ -4,15 +4,18 @@ import api from 'utils/api';
 import { LANGUAGE_ITEMS } from 'constants';
 
 const initialState = {
+  isLive: true,
   value: '',
   sourceLanguageItem: LANGUAGE_ITEMS[0],
   targetLanguageItem: LANGUAGE_ITEMS[1],
+  kakao: '',
+  naver: '',
 };
 
 const fetchTranslation = createAsyncThunk(
   '@TRANSLATION/fetchTranslation',
   (text, thunkApi) => {
-    const { translation: { value, sourceLanguageItem, targetLanguageItem } } = thunkApi.getState();
+    const { translation: { isLive, value, sourceLanguageItem, targetLanguageItem } } = thunkApi.getState();
     return api
       .getTranslation({
         text: value,
@@ -37,6 +40,9 @@ const translation = createSlice({
       if (action.payload.targetLanguageItem) {
         state.targetLanguageItem = action.payload.targetLanguageItem;
       }
+    },
+    toggleLive: (state, action) => {
+      state.isLive = !state.isLive;
     },
   },
   extraReducers: {

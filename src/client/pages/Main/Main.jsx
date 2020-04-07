@@ -7,6 +7,8 @@ import classNames from 'classnames';
 import LanguageDropdown from 'containers/LanguageDropdownContainer';
 import TextareaGroupList from 'containers/TextareaGroupList';
 
+import LiveSwitch from 'containers/LiveSwitch';
+
 function Main(props) {
   return (
     <div className={styles.Main}>
@@ -20,6 +22,7 @@ function Main(props) {
       <div className={classNames('container', styles.Main__body)}>
         <div className="row">
           <div className="col-12">
+            <LiveSwitch />
             <LanguageDropdown />
           </div>
         </div>

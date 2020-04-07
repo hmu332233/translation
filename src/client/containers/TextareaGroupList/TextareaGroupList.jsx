@@ -13,7 +13,7 @@ function TextareaGroupList(props) {
   const handleValueChange = e => {
     const value = e.target.value;
     props.onChange(value);
-    value && props.fetchTranslation(e.target.value);
+    props.isLive && value && props.fetchTranslation(e.target.value);
   }
 
   return (
@@ -33,6 +33,7 @@ TextareaGroupList.defaultProps = {};
 
 const mapStateToProps = (state, ownProps) => {
   return {
+    isLive: state.translation.isLive,
     value: state.translation.value,
     kakaoValue: state.translation.kakao,
     naverValue: state.translation.naver,
