@@ -1,0 +1,22 @@
+.ResultBox {
+  min-height: 96px;
+  padding: 16px;
+  color: #fff;
+  &__body {
+    white-space: pre;
+  }
+
+
+  &.google {
+    background-color: #1a73e8;
+  }
+
+  &.kakao {
+    color: #3b1e1e;
+    background-color: #f7e041;
+  }
+
+  &.naver {
+    background-color: #52c83e;
+  }
+}
