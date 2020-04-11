@@ -1,0 +1,8 @@
+.TextareaBox {
+  padding: 16px;
+  &__textarea {
+    width: 100%;
+    border: none;
+    resize: none;
+  }
+}
