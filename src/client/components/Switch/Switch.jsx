@@ -7,8 +7,8 @@ import classNames from 'classnames';
 function Switch(props) {
   return (
     <div className={classNames('custom-control', 'custom-switch', styles.Switch)} onClick={props.onClick}>
-      <input type="checkbox" class="custom-control-input" checked={props.checked} />
-      <label class="custom-control-label">{props.label}</label>
+      <input type="checkbox" className="custom-control-input" checked={props.checked} />
+      <label className="custom-control-label">{props.label}</label>
     </div>
   );
 }

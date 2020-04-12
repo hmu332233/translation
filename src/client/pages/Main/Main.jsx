@@ -19,18 +19,10 @@ function Main(props) {
           </a>
         </nav>
       </header>
-      <div className={classNames('container', styles.Main__body)}>
-        <div className="row">
-          <div className="col-12">
-            <LiveSwitch />
-            <LanguageDropdown />
-          </div>
-        </div>
-        <div className="row mt-3">
-          <div className="col-12">
-            <TextareaGroupList className="w-100" />
-          </div>
-        </div>
+      <div className={styles.Main__body}>
+        <LiveSwitch />
+        <LanguageDropdown />
+        <TextareaGroupList className="w-100" />
       </div>
     </div>
   );

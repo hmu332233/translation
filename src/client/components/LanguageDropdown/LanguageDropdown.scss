@@ -1,12 +1,14 @@
 .LanguageDropdown {
   display: flex;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
   &__dropdown {
-    margin-left: 32px;
-    &:first-child {
-      margin-left: 0;
-    }
+    // margin-left: 32px;
+    // &:first-child {
+    //   margin-left: 0;
+    // }
     &__button {
-      width: 112px;
+      // width: 112px;
     }
   }
 }

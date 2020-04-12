@@ -1,2 +1,8 @@
 .Dropdown {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  width: 100%;
+  &__button {
+    text-align: center;
+  }
 }

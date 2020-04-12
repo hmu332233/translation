@@ -18,10 +18,10 @@ function Dropdown(props) {
   };
 
   return (
-    <div className={classNames('dropdown', props.className)} >
-      <button className={classNames('btn', 'btn-secondary', 'dropdown-toggle', props.buttonClassName)} data-toggle="dropdown" type="button" onClick={props.toggle}>
+    <div className={classNames('dropdown', styles.Dropdown, props.className)} >
+      <div className={classNames(styles.Dropdown__button, props.buttonClassName)} data-toggle="dropdown" onClick={props.toggle}>
         {props.buttonText}
-      </button>
+      </div>
       <div className={classNames('dropdown-menu', props.isOpen && 'show')}>
         {props.items.map((item, index) => (
           <DropdownItem

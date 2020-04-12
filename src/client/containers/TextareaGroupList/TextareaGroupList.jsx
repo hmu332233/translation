@@ -6,7 +6,8 @@ import { actions } from 'store/modules/translation';
 
 import _debounce from 'lodash/debounce';
 
-import TextareaGroup from 'components/TextareaGroup';
+import TextareaBox from 'components/TextareaBox';
+import ResultBox from 'components/ResultBox';
 
 function TextareaGroupList(props) {
 
@@ -18,10 +19,10 @@ function TextareaGroupList(props) {
 
   return (
     <div className={props.className}>
-      <TextareaGroup label="Text" value={props.value} onChange={handleValueChange} />
-      <TextareaGroup label="Google" value={props.value} />
-      <TextareaGroup label="Naver" value={props.naverValue} />
-      <TextareaGroup label="Kakao" value={props.kakaoValue} />
+      <TextareaBox value={props.value} onChange={handleValueChange} />
+      <ResultBox text={props.value} type="google" />
+      <ResultBox text={props.value} type="kakao" />
+      <ResultBox text={props.value} type="naver" />
     </div>
   );
 }
