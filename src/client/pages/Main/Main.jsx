@@ -6,6 +6,7 @@ import classNames from 'classnames';
 
 import LanguageDropdown from 'containers/LanguageDropdownContainer';
 import TextareaGroupList from 'containers/TextareaGroupList';
+import HotKeys from 'containers/HotKeys';
 
 import LiveSwitch from 'containers/LiveSwitch';
 
@@ -24,6 +25,7 @@ function Main(props) {
         <LanguageDropdown />
         <TextareaGroupList className="w-100" />
       </div>
+      <HotKeys />
     </div>
   );
 }
