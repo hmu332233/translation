@@ -21,8 +21,8 @@ function TextareaGroupList(props) {
     <div className={props.className}>
       <TextareaBox value={props.value} onChange={handleValueChange} />
       <ResultBox text={props.value} type="google" />
-      <ResultBox text={props.value} type="kakao" />
-      <ResultBox text={props.value} type="naver" />
+      <ResultBox text={props.kakaoValue} type="kakao" />
+      <ResultBox text={props.naverValue} type="naver" />
     </div>
   );
 }
