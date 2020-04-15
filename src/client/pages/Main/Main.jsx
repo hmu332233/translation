@@ -18,10 +18,10 @@ function Main(props) {
           <a className="navbar-brand" href="/">
             Translation
           </a>
+          <LiveSwitch />
         </nav>
       </header>
       <div className={styles.Main__body}>
-        <LiveSwitch />
         <LanguageDropdown />
         <TextareaGroupList className="w-100" />
       </div>
