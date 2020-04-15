@@ -18,6 +18,9 @@ function LanguageDropdown(props) {
         buttonText={props.sourceDropdownButtonText}
         onItemClick={props.onSourceItemClick}
       />
+      <button className="btn" onClick={props.onSwapClick}>
+        {'<>'}
+      </button>
       <Dropdown
         className={styles.LanguageDropdown__dropdown}
         buttonClassName={styles.LanguageDropdown__dropdown__button}
@@ -40,6 +43,7 @@ LanguageDropdown.propTypes = {
   toggleTargetDropdown: PropTypes.func,
   onSourceItemClick: PropTypes.func,
   onTargetItemClick: PropTypes.func,
+  onSwapClick: PropTypes.func,
 };
 LanguageDropdown.defaultProps = {};
 

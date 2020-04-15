@@ -14,6 +14,11 @@ function HotKeys(props) {
       e.preventDefault();
     });
 
+    hotkeys('ctrl+alt+`', (e, handler) => {
+      props.swapLanguage();
+      e.preventDefault();
+    });
+
     hotkeys('ctrl+alt+1', (e, handler) => {
       console.log('기능 미구현');
       e.preventDefault();
@@ -46,6 +51,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
+    swapLanguage: () => dispatch(actions.swapLanguage()),
     toggleLive: () => dispatch(actions.toggleLive()),
     copyKakaoToClipboard: () => dispatch(actions.copyToClipboard({ type: 'kakao' })),
     copyNaverToClipboard: () => dispatch(actions.copyToClipboard({ type: 'naver' })),

@@ -46,6 +46,7 @@ function LanguageDropdownContainer(props) {
       toggleTargetDropdown={toggleTargetDropdown}
       onSourceItemClick={handleSourceItemClick}
       onTargetItemClick={handleTargetItemClick}
+      onSwapClick={props.swapLanguage}
     />
   );
 }
@@ -63,6 +64,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     changeLanguageItem: ({ sourceLanguageItem, targetLanguageItem }) => dispatch(actions.changeLanguageItem({ sourceLanguageItem, targetLanguageItem })),
+    swapLanguage: () => dispatch(actions.swapLanguage()),
   };
 };
 

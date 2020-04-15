@@ -42,6 +42,11 @@ const translation = createSlice({
         state.targetLanguageItem = action.payload.targetLanguageItem;
       }
     },
+    swapLanguage: (state, action) => {
+      let temp = state.targetLanguageItem;
+      state.targetLanguageItem = state.sourceLanguageItem;
+      state.sourceLanguageItem = temp;
+    },
     toggleLive: (state, action) => {
       state.isLive = !state.isLive;
     },
