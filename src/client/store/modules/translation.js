@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-import api from 'utils/api';
+import api from 'api';
+import utils from 'utils';
 import { LANGUAGE_ITEMS } from 'constants';
 
 const initialState = {
@@ -43,6 +44,10 @@ const translation = createSlice({
     },
     toggleLive: (state, action) => {
       state.isLive = !state.isLive;
+    },
+    copyToClipboard: (state, action) => {
+      const { type } = action.payload;
+      utils.copyToClipboard(state[type]);
     },
   },
   extraReducers: {

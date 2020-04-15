@@ -13,6 +13,21 @@ function HotKeys(props) {
       props.toggleLive();
       e.preventDefault();
     });
+
+    hotkeys('ctrl+alt+1', (e, handler) => {
+      console.log('기능 미구현');
+      e.preventDefault();
+    });
+
+    hotkeys('ctrl+alt+2', (e, handler) => {
+      props.copyKakaoToClipboard();
+      e.preventDefault();
+    });
+
+    hotkeys('ctrl+alt+3', (e, handler) => {
+      props.copyNaverToClipboard();
+      e.preventDefault();
+    });
   }, []);
 
   return null;
@@ -32,6 +47,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     toggleLive: () => dispatch(actions.toggleLive()),
+    copyKakaoToClipboard: () => dispatch(actions.copyToClipboard({ type: 'kakao' })),
+    copyNaverToClipboard: () => dispatch(actions.copyToClipboard({ type: 'naver' })),
   };
 };
 

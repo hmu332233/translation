@@ -12,6 +12,7 @@
           "pages": "./src/client/pages",
           "store": "./src/client/store",
           "utils": "./src/client/utils",
+          "api": "./src/client/api",
           "constants": "./src/client/constants"
         }
       }

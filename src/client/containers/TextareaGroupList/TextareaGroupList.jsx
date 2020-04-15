@@ -17,9 +17,15 @@ function TextareaGroupList(props) {
     props.isLive && value && props.fetchTranslation(e.target.value);
   }
 
+  const handleKeyDown = e => {
+    if (e.keyCode === 27) {
+      e.currentTarget.blur();
+    }
+  }
+
   return (
     <div className={props.className}>
-      <TextareaBox value={props.value} onChange={handleValueChange} />
+      <TextareaBox value={props.value} onChange={handleValueChange} onKeyDown={handleKeyDown} />
       <ResultBox text={props.value} type="google" />
       <ResultBox text={props.kakaoValue} type="kakao" />
       <ResultBox text={props.naverValue} type="naver" />
