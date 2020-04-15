@@ -9,6 +9,10 @@ import hotkeys from 'hotkeys-js';
 function HotKeys(props) {
 
   useEffect(() => {
+    hotkeys('ctrl+alt+enter', (e, handler) => {
+      document.getElementById('TranslationInput').focus();
+    });
+
     hotkeys('ctrl+alt+t', (e, handler) => {
       props.toggleLive();
       e.preventDefault();

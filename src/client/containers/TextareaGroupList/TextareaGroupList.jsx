@@ -25,7 +25,7 @@ function TextareaGroupList(props) {
 
   return (
     <div className={props.className}>
-      <TextareaBox value={props.value} onChange={handleValueChange} onKeyDown={handleKeyDown} />
+      <TextareaBox id="TranslationInput" value={props.value} onChange={handleValueChange} onKeyDown={handleKeyDown} />
       <ResultBox text={props.value} type="google" />
       <ResultBox text={props.kakaoValue} type="kakao" />
       <ResultBox text={props.naverValue} type="naver" />

@@ -5,12 +5,13 @@ import styles from './TextareaBox.scss';
 function TextareaBox(props) {
   return (
     <div className={styles.TextareaBox}>
-      <textarea className={styles.TextareaBox__textarea} placeholder={props.placeholder} value={props.value} onChange={props.onChange} onKeyDown={props.onKeyDown} />
+      <textarea id={props.id} className={styles.TextareaBox__textarea} placeholder={props.placeholder} value={props.value} onChange={props.onChange} onKeyDown={props.onKeyDown} />
     </div>
   );
 }
 
 TextareaBox.propTypes = {
+  id: PropTypes.string,
   placeholder: PropTypes.string,
   value: PropTypes.string,
   onChange: PropTypes.func,
