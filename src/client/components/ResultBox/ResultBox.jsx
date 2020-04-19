@@ -6,7 +6,7 @@ import classNames from 'classnames';
 
 function ResultBox(props) {
   return (
-    <div className={classNames(styles.ResultBox, styles[props.type])}>
+    <div className={classNames(styles.ResultBox, styles[props.type])} onClick={props.onClick}>
       <div className={styles.ResultBox__body}>{props.text}</div>
       <div className={styles.ResultBox__footer}></div>
     </div>
@@ -16,10 +16,12 @@ function ResultBox(props) {
 ResultBox.propTypes = {
   text: PropTypes.string,
   type: PropTypes.oneOf(['google', 'kakao', 'naver']),
+  onClick: PropTypes.func,
 };
 ResultBox.defaultProps = {
   text: '',
   type: 'google',
+  onClick: v => v,
 };
 
 export default ResultBox;
