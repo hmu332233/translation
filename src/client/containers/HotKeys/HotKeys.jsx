@@ -20,22 +20,22 @@ function HotKeys(props) {
       e.preventDefault();
     });
 
-    hotkeys('ctrl+alt+`', (e, handler) => {
+    hotkeys('ctrl+alt+-', (e, handler) => {
       props.swapLanguage();
       e.preventDefault();
     });
 
-    hotkeys('ctrl+alt+1', (e, handler) => {
+    hotkeys('ctrl+alt+8', (e, handler) => {
       console.log('기능 미구현');
       e.preventDefault();
     });
 
-    hotkeys('ctrl+alt+2', (e, handler) => {
+    hotkeys('ctrl+alt+9', (e, handler) => {
       props.copyKakaoToClipboard();
       e.preventDefault();
     });
 
-    hotkeys('ctrl+alt+3', (e, handler) => {
+    hotkeys('ctrl+alt+0', (e, handler) => {
       props.copyNaverToClipboard();
       e.preventDefault();
     });
