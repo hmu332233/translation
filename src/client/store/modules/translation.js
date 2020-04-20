@@ -17,6 +17,10 @@ const fetchTranslation = createAsyncThunk(
   '@TRANSLATION/fetchTranslation',
   (text, thunkApi) => {
     const { translation: { isLive, value, sourceLanguageItem, targetLanguageItem } } = thunkApi.getState();
+    if (!isLive || !value) {
+      return;
+    }
+
     return api
       .getTranslation({
         text: value,

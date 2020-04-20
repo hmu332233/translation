@@ -22,6 +22,7 @@ function LanguageDropdownContainer(props) {
       sourceLanguageItem: nextSourceLanguageItem,
       targetLanguageItem: nextTargetLanguageItem,
     });
+    props.fetchTranslation();
   };
 
   const handleTargetItemClick = (item) => {
@@ -34,6 +35,12 @@ function LanguageDropdownContainer(props) {
       sourceLanguageItem: nextSourceLanguageItem,
       targetLanguageItem: nextTargetLanguageItem,
     });
+    props.fetchTranslation();
+  };
+
+  const handleSwapButtonClick = () => {
+    props.swapLanguage();
+    props.fetchTranslation();
   };
 
   return (
@@ -46,7 +53,7 @@ function LanguageDropdownContainer(props) {
       toggleTargetDropdown={toggleTargetDropdown}
       onSourceItemClick={handleSourceItemClick}
       onTargetItemClick={handleTargetItemClick}
-      onSwapClick={props.swapLanguage}
+      onSwapClick={handleSwapButtonClick}
     />
   );
 }
@@ -65,6 +72,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     changeLanguageItem: ({ sourceLanguageItem, targetLanguageItem }) => dispatch(actions.changeLanguageItem({ sourceLanguageItem, targetLanguageItem })),
     swapLanguage: () => dispatch(actions.swapLanguage()),
+    fetchTranslation: () => dispatch(actions.fetchTranslation()),
   };
 };
 

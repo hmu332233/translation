@@ -5,10 +5,12 @@ import { connect } from 'react-redux';
 import { actions } from 'store/modules/translation';
 
 import hotkeys from 'hotkeys-js';
- 
+
 function HotKeys(props) {
 
   useEffect(() => {
+    hotkeys.filter = () => true;    
+
     hotkeys('ctrl+alt+enter', (e, handler) => {
       document.getElementById('TranslationInput').focus();
     });
