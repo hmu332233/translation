@@ -6,36 +6,38 @@ import { actions } from 'store/modules/translation';
 
 import hotkeys from 'hotkeys-js';
 
+import { HOTKEYS_KEY, HOTKEYS } from 'constants';
+
 function HotKeys(props) {
 
   useEffect(() => {
     hotkeys.filter = () => true;    
 
-    hotkeys('ctrl+alt+enter', (e, handler) => {
+    hotkeys(HOTKEYS[HOTKEYS_KEY.INPUT.FOCUS].command, (e, handler) => {
       document.getElementById('TranslationInput').focus();
     });
 
-    hotkeys('ctrl+alt+t', (e, handler) => {
+    hotkeys(HOTKEYS[HOTKEYS_KEY.LIVE.TOGGLE].command, (e, handler) => {
       props.toggleLive();
       e.preventDefault();
     });
 
-    hotkeys('ctrl+alt+-', (e, handler) => {
+    hotkeys(HOTKEYS[HOTKEYS_KEY.LANGUAGE.SWAP].command, (e, handler) => {
       props.swapLanguage();
       e.preventDefault();
     });
 
-    hotkeys('ctrl+alt+8', (e, handler) => {
+    hotkeys(HOTKEYS[HOTKEYS_KEY.COPY.GOOGLE].command, (e, handler) => {
       console.log('기능 미구현');
       e.preventDefault();
     });
 
-    hotkeys('ctrl+alt+9', (e, handler) => {
+    hotkeys(HOTKEYS[HOTKEYS_KEY.COPY.KAKAO].command, (e, handler) => {
       props.copyKakaoToClipboard();
       e.preventDefault();
     });
 
-    hotkeys('ctrl+alt+0', (e, handler) => {
+    hotkeys(HOTKEYS[HOTKEYS_KEY.COPY.NAVER].command, (e, handler) => {
       props.copyNaverToClipboard();
       e.preventDefault();
     });
