@@ -1,5 +1,9 @@
 import axios from 'axios';
 
+const apiServer = axios.create({
+  baseURL: process.env.API_HOST || '',
+});
+
 const getTranslation = ({ text, source, target }) => {
   const options = {
     params: {
@@ -8,7 +12,7 @@ const getTranslation = ({ text, source, target }) => {
       target,
     },
   };
-  return axios.get('/api/v1/translation', options);
+  return apiServer.get('/api/v1/translation', options);
 };
 
 export default {
