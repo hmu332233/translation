@@ -11,7 +11,7 @@ const mapToLanguageCode = language => {
     case 'ja':
       return 'jp';
     default:
-      return 'ko';
+      return 'kr';
   }
 };
 
