@@ -28,7 +28,7 @@ function HotKeys(props) {
     });
 
     hotkeys(HOTKEYS[HOTKEYS_KEY.COPY.GOOGLE].command, (e, handler) => {
-      console.log('기능 미구현');
+      props.copyGoogleToClipboard();
       e.preventDefault();
     });
 
@@ -63,6 +63,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     toggleLive: () => dispatch(actions.toggleLive()),
     copyKakaoToClipboard: () => dispatch(actions.copyToClipboard({ type: 'kakao' })),
     copyNaverToClipboard: () => dispatch(actions.copyToClipboard({ type: 'naver' })),
+    copyGoogleToClipboard: () => dispatch(actions.copyToClipboard({ type: 'google' })),
   };
 };
 

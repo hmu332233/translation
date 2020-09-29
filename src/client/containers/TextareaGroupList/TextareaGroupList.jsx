@@ -26,7 +26,7 @@ function TextareaGroupList(props) {
   return (
     <div className={props.className}>
       <TextareaBox id="TranslationInput" value={props.value} onChange={handleValueChange} onKeyDown={handleKeyDown} />
-      <ResultBox text={props.value} type="google" />
+      <ResultBox text={props.googleValue} type="google" onClick={props.copyGoogleToClipboard} />
       <ResultBox text={props.kakaoValue} type="kakao" onClick={props.copyKakaoToClipboard} />
       <ResultBox text={props.naverValue} type="naver" onClick={props.copyNaverToClipboard} />
     </div>
@@ -44,6 +44,7 @@ const mapStateToProps = (state, ownProps) => {
     value: state.translation.value,
     kakaoValue: state.translation.kakao,
     naverValue: state.translation.naver,
+    googleValue: state.translation.google,
   };
 };
 
@@ -53,6 +54,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     fetchTranslation: _debounce(value => dispatch(actions.fetchTranslation(value)), 1000),
     copyKakaoToClipboard: () => dispatch(actions.copyToClipboard({ type: 'kakao' })),
     copyNaverToClipboard: () => dispatch(actions.copyToClipboard({ type: 'naver' })),
+    copyGoogleToClipboard: () => dispatch(actions.copyToClipboard({ type: 'google' })),
   };
 };
 

@@ -11,6 +11,7 @@ const initialState = {
   targetLanguageItem: LANGUAGE_ITEMS[1],
   kakao: '',
   naver: '',
+  google: '',
 };
 
 const fetchTranslation = createAsyncThunk(
@@ -64,6 +65,7 @@ const translation = createSlice({
     [fetchTranslation.fulfilled]: (state, action) => {
       state.kakao = action.payload.kakao;
       state.naver = action.payload.naver;
+      state.google = action.payload.google;
     },
     [fetchTranslation.rejected]: (state, action) => {},
   },
