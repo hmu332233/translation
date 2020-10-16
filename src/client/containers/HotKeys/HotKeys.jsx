@@ -17,6 +17,11 @@ function HotKeys(props) {
       document.getElementById('TranslationInput').focus();
     });
 
+    hotkeys(HOTKEYS[HOTKEYS_KEY.HELP.TOGGLE].command, (e, handler) => {
+      props.toggleHotkeyModal();
+      e.preventDefault();
+    });
+
     hotkeys(HOTKEYS[HOTKEYS_KEY.LIVE.TOGGLE].command, (e, handler) => {
       props.toggleLive();
       e.preventDefault();
@@ -61,6 +66,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     swapLanguage: () => dispatch(actions.swapLanguage()),
     toggleLive: () => dispatch(actions.toggleLive()),
+    toggleHotkeyModal: () => dispatch(actions.toggleHotkeyModal()),
     copyKakaoToClipboard: () => dispatch(actions.copyToClipboard({ type: 'kakao' })),
     copyNaverToClipboard: () => dispatch(actions.copyToClipboard({ type: 'naver' })),
     copyGoogleToClipboard: () => dispatch(actions.copyToClipboard({ type: 'google' })),
