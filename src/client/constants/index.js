@@ -14,6 +14,9 @@ export const LANGUAGE_ITEMS = [
 ];
 
 export const HOTKEYS_KEY = {
+  HELP: {
+    TOGGLE: 'HOTKEY.HELP.TOGGLE',
+  },
   LIVE: {
     TOGGLE: 'HOTKEY.LIVE.TOGGLE',
   },
@@ -31,6 +34,11 @@ export const HOTKEYS_KEY = {
 };
 
 export const HOTKEYS = {
+  [HOTKEYS_KEY.HELP.TOGGLE]: {
+    id: HOTKEYS_KEY.HELP.TOGGLE,
+    command: 'ctrl+alt+h',
+    description: '도움말을 연다/닫는다.',
+  },
   [HOTKEYS_KEY.INPUT.FOCUS]: {
     id: HOTKEYS_KEY.INPUT.FOCUS,
     command: 'ctrl+alt+enter',
