@@ -1,0 +1,14 @@
+.HotkeyModal {
+  display: block !important;
+}
+
+.HotKeyItem {
+  display: flex;
+  margin-top: 24px;
+  &:first-child {
+    margin-top: 0;
+  }
+  &__description {
+    margin-left: 8px;
+  }
+}

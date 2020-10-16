@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './Command.scss';
 
 function Command(props) {
   return (
@@ -8,7 +7,7 @@ function Command(props) {
       {props.value
         .split('+')
         .map((char) => <kbd>{char}</kbd>)
-        .reduce((prev, curr) => [prev, ' ', curr])}
+        .reduce((prev, curr) => [prev, '+', curr])}
     </div>
   );
 }
