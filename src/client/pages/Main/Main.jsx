@@ -4,6 +4,7 @@ import styles from './Main.scss';
 
 import classNames from 'classnames';
 
+import HotkeyModal from 'containers/HotkeyModalContainer';
 import LanguageDropdown from 'containers/LanguageDropdownContainer';
 import TextareaGroupList from 'containers/TextareaGroupList';
 import HotKeys from 'containers/HotKeys';
@@ -26,6 +27,7 @@ function Main(props) {
         <TextareaGroupList className="w-100" />
       </div>
       <HotKeys />
+      <HotkeyModal />
     </div>
   );
 }

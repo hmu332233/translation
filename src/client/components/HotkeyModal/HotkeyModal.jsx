@@ -14,9 +14,9 @@ const HotKeyItem = (props) => (
 );
 
 function HotkeyModal(props) {
-  return (
+  return props.isOpen && (
     <>
-      <div className={classnames(styles.HotkeyModal, 'modal fade', props.isOpen && 'show')} tabindex="-1">
+      <div className={classnames(styles.HotkeyModal, 'modal show d-block')} tabindex="-1">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -35,7 +35,7 @@ function HotkeyModal(props) {
           </div>
         </div>
       </div>
-      {props.isOpen && <div className={'modal-backdrop fade show'} onClick={props.toggle}/>}
+      {<div className={classnames('modal-backdrop show')} />}
     </>
   );
 }
@@ -52,7 +52,7 @@ HotkeyModal.propTypes = {
   ),
 };
 HotkeyModal.defaultProps = {
-  isOpen: true,
+  isOpen: false,
   toggle: v => v,
   items: [],
 };

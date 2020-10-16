@@ -6,6 +6,7 @@ import { LANGUAGE_ITEMS } from 'constants';
 
 const initialState = {
   isLive: true,
+  isHotkeyModalOpen: false,
   value: '',
   sourceLanguageItem: LANGUAGE_ITEMS[0],
   targetLanguageItem: LANGUAGE_ITEMS[1],
@@ -54,6 +55,9 @@ const translation = createSlice({
     },
     toggleLive: (state, action) => {
       state.isLive = !state.isLive;
+    },
+    toggleHotkeyModal: (state, action) => {
+      state.isHotkeyModalOpen = !state.isHotkeyModalOpen;
     },
     copyToClipboard: (state, action) => {
       const { type } = action.payload;
