@@ -19,6 +19,7 @@ exports.translate = async ({ text, source = 'kr', target = 'en' }) => {
   const options = {
     headers: {
       Authorization: `KakaoAK ${process.env.KAKAO_API_KEY}`,
+      'Content-Type': 'application/x-www-form-urlencoded'
     },
     params: {
       query: text,
@@ -26,6 +27,10 @@ exports.translate = async ({ text, source = 'kr', target = 'en' }) => {
       target_lang: mapToLanguageCode(target),
     },
   };
-  const res = await axios.get('https://kapi.kakao.com/v1/translation/translate', options);
-  return res.data.translated_text;
+  try {
+    const res = await axios.get('https://dapi.kakao.com/v2/translation/translate', options)
+    return res.data.translated_text;
+  } catch (err) {
+    return err.response.data.msg;
+  }
 };
